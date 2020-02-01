@@ -342,8 +342,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 821418038}
-  movementSpeed: 0
-  maximumMovementSpeed: 0
+  movementSpeed: 2
+  maximumMovementSpeed: 10
   xAxisSensitivity: 100
   yAxisSensitivity: 100
   maximumYRotation: 89
