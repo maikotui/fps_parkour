@@ -73,6 +73,24 @@ public class PlayerController : MonoBehaviour
 
     private void HandleMovementInput()
     {
-        
+        Vector3 velocity = characterController.velocity;
+
+        if (IsGrounded)  // Grounded Movement
+        {
+            Vector2 movementInput = m_inputManager.GetMovementInput();
+            Vector3 worldspaceMovementInput = transform.TransformVector(new Vector3(movementInput.x, 0f, movementInput.y));
+            Vector3 targetVelocity = worldspaceMovementInput * maximumMovementSpeed * movementSpeed;
+            velocity = Vector3.Lerp(velocity, targetVelocity, 15 * Time.deltaTime);
+            // Reduce movement speed if crouching if applicable
+
+            // Orient velocity on the current slope
+        }
+        else  // In Air Movement
+        {
+
+        }
+
+        velocity += Vector3.down * 9.41f * Time.deltaTime;
+        characterController.Move(velocity * Time.deltaTime);
     }
 }
